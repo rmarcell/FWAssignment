@@ -101,21 +101,20 @@ int main(void)
 
     /* =================== Buffer full -> not storing ==================== */
     
-    buf_t testbuffer_small;
-    bufInit(&testbuffer_small, TIMESTAMP_MIN, samplePeriod);
+    bufInit(&testbuffer, TIMESTAMP_MIN, samplePeriod);
     
     int retval = 0;
     for(int i=0; i<MAX_N_SAMPLES; i++)
     {
-        retval = bufAddSample(&testbuffer_small, TIMESTAMP_MIN+samplePeriod*i, i);
+        retval = bufAddSample(&testbuffer, TIMESTAMP_MIN+samplePeriod*i, i);
         printf("retval shall be 0: %d\n", retval);        
     }
     for(int i=MAX_N_SAMPLES; i<MAX_N_SAMPLES+4U; i++)
     {
-        retval = bufAddSample(&testbuffer_small, TIMESTAMP_MIN+samplePeriod*i, i);
+        retval = bufAddSample(&testbuffer, TIMESTAMP_MIN+samplePeriod*i, i);
         printf("retval shall be (-1): %d\n", retval);        
     }
-    buf_print(&testbuffer_small);
+    buf_print(&testbuffer);
 
     return 0;
 }
