@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-I.
-DEPS = buffer.h
+DEPS = buffer.h main.h 
 OBJ = main.o buffer.o 
 
 

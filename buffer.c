@@ -1,6 +1,7 @@
-#include "buffer.h"
 #include <stddef.h>
 #include <math.h>   /* abs */
+
+#include "buffer.h"
 
 /* Return the error according to the nominal distance and num of samples */
 static int calculateTimingError(timestamp_t ts_start, timestamp_t ts_now, int diffNominal, int n_current_samples)

@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include "buffer.h"
-
-#include <time.h>
-
+#include "main.h"
 
 /* Simple print function only for testing */
 static void buf_print(buf_t* buf)
@@ -58,7 +54,6 @@ int main(void)
     sample_t samplePeriod = 60U;
 
     bufInit(&testbuffer, TIMESTAMP_MIN, samplePeriod);
-
 
     /* =================== Storing elements ==================== */
 

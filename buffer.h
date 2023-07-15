@@ -1,19 +1,24 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
+/* TEST */
+#ifndef UNITTEST
+    #define UNITTEST
+#endif
+
 typedef unsigned long timestamp_t;
 typedef short sampletime_t;
 typedef char sample_t;
 
 #define FLASH_SIZE      50400U
-#if 0
-#define MAX_N_SAMPLES   ((FLASH_SIZE-sizeof(timestamp_t)-sizeof(sampletime_t))/sizeof(sample_t))
+#if !defined(UNITTEST)
+    #define MAX_N_SAMPLES   ((FLASH_SIZE-sizeof(timestamp_t)-sizeof(sampletime_t))/sizeof(sample_t))
+#else
+    #define MAX_N_SAMPLES   10U     /* TEST */
 #endif
 
-#define MAX_N_SAMPLES   10U          /* Test */
-
-#define TIMESTAMP_MIN  0x386D4380    /* 2000.01.01. 00:00:00 */
-#define TIMESTAMP_MAX  0xF6678A7F    /* 2100.12.31. 23:59:59 */
+#define TIMESTAMP_MIN  0x386D4380   /* 2000.01.01. 00:00:00 */
+#define TIMESTAMP_MAX  0xF6678A7F   /* 2100.12.31. 23:59:59 */
 
 #define INVALID_SAMPLE 255U
 
